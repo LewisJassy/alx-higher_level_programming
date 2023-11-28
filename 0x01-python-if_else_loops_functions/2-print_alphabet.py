@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-for i in range(ord('a'), ord('z') + 1):
-    char = chr(i)
-    print(char, end="")
+i = 0
+while i < 26:
+    print("{:s}".format(chr(i + ord('a'))), end="")
+    i += 1

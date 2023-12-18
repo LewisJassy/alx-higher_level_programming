@@ -10,4 +10,5 @@ def safe_print_integer(value):
                 return False
         except ValueError:
             break
+    print()
     return value

@@ -10,4 +10,3 @@ def safe_print_integer(value):
             return False
     except ValueError:
         return False
-print()

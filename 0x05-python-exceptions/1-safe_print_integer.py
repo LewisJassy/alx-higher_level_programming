@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 
 def safe_print_integer(value):
-    for i in value:
+    while(value):
         try:
-            if isinstance(i, int):
-                print("{:d}".format(i))
+            if isinstance(value, int):
+                print("{:d}".format(value))
                 return True
             else:
                 return False

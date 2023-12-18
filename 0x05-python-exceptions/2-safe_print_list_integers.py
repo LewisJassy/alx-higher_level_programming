@@ -2,7 +2,7 @@
 
 def safe_print_list_integers(my_list=[], x=0):
     count =  0
-    for i in range(x):
+    for i in my_list:
         try:
             if type(i) is int:
                 print("{:d}".format(my_list[i]), end="")

@@ -1,7 +1,9 @@
 #!/usr/bin/python3
-"""A module for square"""
-
+"""Module for square operations"""
 
 class Square:
-    """Represent a square."""
+    """Represent a square.
+
+    This class is a simple placeholder for a square. It currently doesn't have any methods or attributes.
+    """
     pass

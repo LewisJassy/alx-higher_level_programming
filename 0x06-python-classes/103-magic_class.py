@@ -3,7 +3,6 @@
 
 
 import math
-
 class MagicClass:
     def __init__(self, radius=0):
         """Initialize circle with default radius=0

@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""A  math module"""
+
+
 import math
+"""A math module"""
 
 
 class MagicClass:

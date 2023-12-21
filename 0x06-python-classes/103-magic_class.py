@@ -3,7 +3,6 @@
 
 
 import math
-"""A math module"""
 
 class MagicClass:
     def __init__(self, radius=0):

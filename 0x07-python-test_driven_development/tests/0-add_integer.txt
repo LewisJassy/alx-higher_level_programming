@@ -3,7 +3,7 @@
 3
 >>> add_integer(100, -2)
 98
->>> add_integer(2.5, 98))
+>>> add_integer(2.5, 98)
 100
 >>> add_integer(5)
 103

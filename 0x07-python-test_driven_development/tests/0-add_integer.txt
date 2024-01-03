@@ -1,36 +1,26 @@
-#!/usr/bin/python3
-import unittest
-from add_integer_module import add_integer
+>>>add_integer = __import__("0-add_integer").add_integer
+>>>add_integer(1, 2)
+3
+>>>add_integer(100, -2)
+98
+>>>add_integer(2.5, 98))
+100
+>>>add_integer(5)
+103
+>>>add_integer(5.5, 3)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer or b must be an integer
 
-class TestAdd(unittest.TestCase):
-    def test_add_positive_values(self):
-        self.assertEqual(add_integer(2, 98), 100)
-    
-    def test_add_negative_values(self):
-        self.assertEqual(add_integer(-2, 98), 96)
+>>>add_integer(5, '3')
+Traceback (most recent call last):
+...
+TypeError: b must be an integer
 
-    def test_add_float_values(self):
-        self.assertEqual(add_integer(2.5, 98), 100.5)
+>>>add_integer("lewis", 7)
+Traceback (most recent call last):
+...
+TypeError: a must be an integer
 
-    def test_add_integer_default_value(self):
-        result = add_integer(5)
-        self.assertEqual(result, 103)  # 5 + 98 (default value for b)
-
-    def test_add_integer_type_error_float_a(self):
-        with self.assertRaises(TypeError):
-            add_integer(5.5, 3)
-
-    def test_add_integer_type_error_float_b(self):
-        with self.assertRaises(TypeError):
-            add_integer(5, 3.3)
-
-    def test_add_integer_type_error_non_numeric_a(self):
-        with self.assertRaises(TypeError):
-            add_integer('5', 3)
-
-    def test_add_integer_type_error_non_numeric_b(self):
-        with self.assertRaises(TypeError):
-            add_integer(5, '3')
-
-if __name__ == '__main__':
-    unittest.main()
+>>> add_integer(-4.9, -4.8)
+-8

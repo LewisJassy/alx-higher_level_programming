@@ -21,6 +21,12 @@ def matrix_divided(matrix, div):
 
     if div == 0:
         raise ZeroDivisionError("division by zero")
+    
+    for row in matrix:
+        for element in row:
+            if not isinstance(element, (int, float)):
+                raise TypeError("Each element of the matrix must be an integer or float")
+
 
     # Perform matrix division
     result_matrix = [[round(element / div, 2) for element in row] for row in matrix]

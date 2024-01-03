@@ -1,23 +1,23 @@
->>>add_integer = __import__("0-add_integer").add_integer
->>>add_integer(1, 2)
+>>> add_integer = __import__("0-add_integer").add_integer
+>>> add_integer(1, 2)
 3
->>>add_integer(100, -2)
+>>> add_integer(100, -2)
 98
->>>add_integer(2.5, 98))
+>>> add_integer(2.5, 98))
 100
->>>add_integer(5)
+>>> add_integer(5)
 103
->>>add_integer(5.5, 3)
+>>> add_integer(5.5, 3)
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer or b must be an integer
 
->>>add_integer(5, '3')
+>>> add_integer(5, '3')
 Traceback (most recent call last):
 ...
 TypeError: b must be an integer
 
->>>add_integer("lewis", 7)
+>>> add_integer("lewis", 7)
 Traceback (most recent call last):
 ...
 TypeError: a must be an integer

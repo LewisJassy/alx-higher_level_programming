@@ -19,7 +19,7 @@ def matrix_divided(matrix, div):
     if not isinstance(div, (int, float)):
         raise TypeError("div must be a number")
 
-    if div == 0:
+    if div == 0 or (isinstance(div, float) and div.is_integer() and div != 0):
         raise ZeroDivisionError("division by zero")
     
     for row in matrix:

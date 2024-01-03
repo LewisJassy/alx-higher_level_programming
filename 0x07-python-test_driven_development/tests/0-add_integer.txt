@@ -20,5 +20,7 @@ Traceback (most recent call last):
 ...
 TypeError: a must be an integer
 
->>> add_integer(-4.9, -4.8)
--8
+>>> print(add_integer(10.999999999999999,2))
+12
+>>> print(add_integer(10.9999999999999999,2))
+13

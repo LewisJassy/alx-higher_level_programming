@@ -15,4 +15,4 @@ TypeError: second_name must be a string
 My name is Lewis Njaci
 
 >>> say_my_name("Lewis")
-My name is Lewis
+My name is Lewis 

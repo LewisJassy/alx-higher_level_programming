@@ -1,7 +1,7 @@
 #!/usr/bin/python3
+"""Module containing empty Rectangle class"""
 
 
-class Reactangle():
-    """empty rectangle class for later use
-    """
+class Rectangle:
+    """Empty Rectangle class"""
     pass

@@ -2,7 +2,7 @@
 
 >>> say_my_name = __import__("3-say_my_name").say_my_name
 >>> say_my_name(20, "Njaci")
->>>say_my_name(say_my_name)
+>>> say_my_name(say_my_name)
 Traceback (most recent call last):
 ...
 TypeError: first name must be a string

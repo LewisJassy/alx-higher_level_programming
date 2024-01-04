@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 
-class Reactangle:
+class Reactangle():
     """empty rectangle class for later use
     """
     pass

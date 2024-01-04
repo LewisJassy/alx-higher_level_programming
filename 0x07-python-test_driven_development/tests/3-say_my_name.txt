@@ -7,10 +7,9 @@ Traceback (most recent call last):
 ...
 TypeError: first name must be a string
 
->>> say_my_name("Lewis", e)
->>> say_my_name(say_my_name)
+>>> say_my_name("Lewis", e)  # Assuming 'e' is a string
 Traceback (most recent call last):
-...
+  ...
 TypeError: second_name must be a string
 
 >>> say_my_name("Lewis", "Njaci")

@@ -74,4 +74,3 @@ class Rectangle:
         Returns: 2 * (w + h) if both `width` and `height` > 0, else 0.
         """
         return 2*(self.width + self.height) * bool(self.width and self.height)
-    

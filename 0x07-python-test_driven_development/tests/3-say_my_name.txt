@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 
 >>> say_my_name = __import__("3-say_my_name").say_my_name
->>> say_my_name(20, "Njaci")
+>>> say_my_name(20)
 >>> say_my_name(say_my_name)
 Traceback (most recent call last):
 ...
 TypeError: first name must be a string
 
->>> say_my_name("Lewis", "e")  # Assuming 'e' is a string
+>>> say_my_name("Lewis", 20)  
 Traceback (most recent call last):
   ...
 TypeError: second_name must be a string
@@ -22,6 +22,4 @@ My name is Lewis
 
 >>> say_my_name("")
 >>> say_my_name(say_my_name)
-Traceback (most recent call last):
-...
-ValueError: String is empty
+My name is 

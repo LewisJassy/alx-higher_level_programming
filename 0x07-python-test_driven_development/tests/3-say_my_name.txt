@@ -20,3 +20,9 @@ Lewis Njaci
 >>> say_my_name("Lewis")
 >>> say_my_name(say_my_name)
 Lewis
+
+>>> say_my_name("")
+>>> say_my_name(say_my_name)
+Traceback (most recent call last):
+...
+ValueError: String is empty

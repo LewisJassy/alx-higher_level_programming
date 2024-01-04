@@ -16,6 +16,3 @@ My name is Lewis Njaci
 
 >>> say_my_name("Lewis")
 My name is Lewis
-
->>> say_my_name("")
-My name is

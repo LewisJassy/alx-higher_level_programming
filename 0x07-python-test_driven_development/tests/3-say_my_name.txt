@@ -18,4 +18,4 @@ My name is Lewis Njaci
 My name is Lewis
 
 >>> say_my_name("")
-My name is 
+My name is

@@ -1,9 +1,23 @@
-#!/usr/bin/python3
+>>> text_ind("hello:world?")
+hello:
+<BLANKLINE>
+world?
+<BLANKLINE>
 
->>> text_indentation = __import__("5-text_indentation").text_indentation
->>> text_indentation("Hi there")
-Hi there
->>> text_indentation(4)
-Traceback (most recent call)
-    ...
+>>> text_ind("hello:::world?")
+hello:
+<BLANKLINE>
+:
+<BLANKLINE>
+:
+<BLANKLINE>
+world?
+<BLANKLINE>
+
+>>> text_ind(42)
+Traceback (most recent call last):
+	...
 TypeError: text must be a string
+
+>>> text_ind("hello")
+hello

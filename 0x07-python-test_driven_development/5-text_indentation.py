@@ -2,7 +2,8 @@
 
 
 def text_indentation(text):
-    """prints a char followed by newline 
+    """
+    prints a char followed by newline 
     if encounter '.', '?' and ':'
     """
     if not isinstance(text, str):

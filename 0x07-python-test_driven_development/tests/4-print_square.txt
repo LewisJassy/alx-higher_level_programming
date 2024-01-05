@@ -6,7 +6,7 @@
 ####
 ####
 ####
->>> print_square("4")
+>>> print_square(-1)
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer

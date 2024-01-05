@@ -3,7 +3,7 @@
 
 def text_indentation(text):
     """prints a char followed by newline 
-        if encounter '.', '?' and ':'
+    if encounter '.', '?' and ':'
     """
     if not isinstance(text, str):
         raise TypeError("text must be a string")

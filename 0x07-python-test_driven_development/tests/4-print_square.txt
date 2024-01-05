@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+
+print_square = __import("4-print_square").print_square
+>>> print_square(4)
+4
+>>> print_square("4")
+Traceback (most recent call last):
+...
+TypeError: size must be an integer
+>>> print_square(-4)
+Traceback (most recent call last):
+...
+ValueError: size must >= 0
+>>> print_square(-4.5)
+Traceback (most recent call last):
+...
+TypeError: size must be an integer

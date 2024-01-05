@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+
+>>> text_indentation = __import__("5-text_indentation").text_indentation
+>>> text_indentation("Hi there")
+Hi there
+>>> text_indentation(4)
+Traceback (most recent call)
+    ...
+TypeError: text must be a string

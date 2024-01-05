@@ -4,10 +4,8 @@
 >>> print_square(4)
 ####
 ####
-<<<<<<< HEAD
 ####
 ####
->>>>>>> be6b3730b955bdaffd83817e7ef968931a5984e1
 >>> print_square("4")
 Traceback (most recent call last):
 ...

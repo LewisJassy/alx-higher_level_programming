@@ -6,7 +6,7 @@
 ####
 ####
 ####
->>> print_square(e)
+>>> print_square('e')
 Traceback (most recent call last):
 ...
 TypeError: size must be an integer

@@ -1,6 +1,4 @@
-#!/usr/bin/python3
 def magic_string():
-    result = []
-    for _ in range(len(result)):  # Use length of result to determine iterations
-        result.append("BestSchool")
-    return "".join(result)
+    from counter import Counter
+    Counter.i += 1
+    return ", ".join(["Holberton" for i in range(0, Counter.i)])

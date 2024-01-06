@@ -16,10 +16,10 @@ def matrix_mul(m_a, m_b):
     if not (m_b and all(m_b)):
         raise ValueError("m_b can't be empty")
 
-    if not isinstance(m_a, (int, float)):
-        raise TypeError("m_a should contain only integers or floats")
-    if not isinstance(m_b, (int, float)):
-        raise TypeError("m_b should contain only integers or floats")
+    for matrix, matrix_name in [(m_a, 'm_a'), (m_b, 'm_b')]:
+        for row in matrix:
+            if not all(isinstance(elem, (int, float)) for elem in row):
+                raise TypeError(f"{matrix_name} should contain only integers or floats")
 
     if len(set(len(row) for row in m_a)) > 1:
         raise TypeError("each row of m_a must be of the same size")

@@ -24,3 +24,5 @@ TypeError: a must be an integer
 12
 >>> print(add_integer(10.9999999999999999,2))
 13
+>>> add_integer(4.5, 4.5)
+8

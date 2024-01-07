@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 import numpy as np
+
 def lazy_matrix_mul(m_a, m_b):
     """
     This function multiplies two matrices.
@@ -11,7 +12,7 @@ def lazy_matrix_mul(m_a, m_b):
 
     if not (all(isinstance(row, list) for row in m_a)):
         raise TypeError("m_a must be a list of lists")
-    if not (all(isinstance(row, list) for row in m_b)) :
+    if not (all(isinstance(row, list) for row in m_b)):
         raise TypeError("m_b must be a list of lists")
 
     if not (m_a and all(m_a)):
@@ -31,6 +32,6 @@ def lazy_matrix_mul(m_a, m_b):
 
     if len(m_a[0]) != len(m_b):
         raise ValueError("m_a and m_b can't be multiplied")
-    
+
     result = np.dot(m_a, m_b)
     return result

@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module for a func to check dynamics"""
 
+
 def add_attribute(obj, attr, value):
     """Defines function to check whether object supports dynamic assigment.
 

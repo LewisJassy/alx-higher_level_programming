@@ -2,15 +2,19 @@
 """Module implementing BaseGeometry class"""
 
 
-class BaseGeometry:
-    """BaseGeometry class to extend"""
+class BaseGeometry():
+    """for use with shapes. Super class.
+    """
+
     def area(self):
-        """Function to compute area of self"""
-        raise Exception('area() is not implemented')
+        """instance method to calculate area of shape
+        """
+        raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Function to validate value is an int"""
-        if type(value) is not int:
-            raise TypeError('{} must be an integer'.format(name))
-        if value <= 0:
-            raise ValueError('{} must be greater than 0'.format(name))
+        """validates integer input
+        """
+        if type(value) != int:
+            raise TypeError(name + " must be an integer")
+        elif value <= 0:
+            raise ValueError(name + " must be greater than 0")

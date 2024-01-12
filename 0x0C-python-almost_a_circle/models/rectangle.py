@@ -69,8 +69,8 @@ class Rectangle(Base):
         return result
     
     def display(self):
+        """Display the Rectangle instance by printing it to stdout using '#'."""
         for _ in range(self.__y):
             print()
         for _ in range(self.__height):
             print(" " * self.__x + '#' * self.__width)
-        """Display the Rectangle instance by printing it to stdout using '#'."""

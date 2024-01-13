@@ -43,3 +43,9 @@ class Base:
         with open("{}.json".format(cls.__name__), 'w') as jf:
             jf.write(cls.to_json_string([obj.to_dictionary() for
                                          obj in list_objs]))
+            
+    def from_json_string(json_string):
+        if json_string == None:
+            return "[]"
+        else:
+            return json.loads(json_string)

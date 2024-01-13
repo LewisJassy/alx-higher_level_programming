@@ -1,11 +1,26 @@
 #!/usr/bin/python3
+"""
+Module for representing and managing geometric shapes,
+primarily rectangles and squares.
+"""
 
 import json
 import csv
 
 class Base:
+    """
+    Base class for geometric shapes,
+    providing common functionality for ID management and persistence.
+    """
     __nb_objects = 0
     def __init__(self, id = None):
+        """
+        Initializes a new Base object with an optional ID.
+
+        Args:
+            id (int, optional): Unique identifier for the object.
+            If not provided, a new ID is generated.
+        """
         if id is not None:
             self.id = id
         else:
@@ -73,6 +88,14 @@ class Base:
                                          obj in list_objs]))
     @staticmethod 
     def from_json_string(json_string):
+        """Deserializes a JSON string into a list of dictionaries.
+
+        Args:
+            json_string (str): JSON string to deserialize.
+
+        Returns:
+            list: List of deserialized dictionaries.
+        """
         if json_string == None:
             return "[]"
         else:

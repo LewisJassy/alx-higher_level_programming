@@ -10,6 +10,32 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Method to create new instance directly from the class. Mainly
+        for use by subclasses of Base.
+
+        Args:
+            dictionary (dict): Dictionary of attributes, value pairs
+                with which to set attributes for new instance.
+
+        Returns: New instance of class from which `create` was called.
+
+        Raises: Errors delegated to subclasses of Base which call this
+            method.
+        """
+        if cls.__name__ == "Rectangle":
+            c = cls(1, 1)
+        elif cls.__name__ == "Square":
+            c = cls(1)
+        else:
+            c = cls()
+        if not hasattr(dictionary, "keys") or not callable(dictionary.keys):
+            dictionary = {}
+        c.update(**dictionary)
+        return c
+    
     @staticmethod
     def to_json_string(list_dictionaries):
         """Static method to serialize list of dictionary objects into json.
@@ -50,14 +76,4 @@ class Base:
         else:
             return json.loads(json_string)
         
-    @classmethod
-    def create(cls, **dictionary):
-        dummy_instance = cls(1)
-        dummy_instance.update(**dictionary)
-        return dummy_instance
-    def update(self, *args, **kwargs):
-        if args:
-            self.id = args[0] if len(args) > 0 else self.id
-        elif kwargs:
-            for key, value in kwargs.items():
-                setattr(self, key, value)
+    

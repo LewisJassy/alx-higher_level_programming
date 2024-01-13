@@ -78,7 +78,7 @@ class Rectangle(Base):
     def __str__(self):
         """function that returns values of rectangle in string format"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
-    
+    # checks if there is positional argument, if there is no it falls back to update the attributes 
     def update(self, *args, **kwargs):
         """Update attributes of the Rectangle instance with positional arguments."""
         if len(args) > 0:

@@ -40,19 +40,17 @@ class TestBase(unittest.TestCase):
 
     def test_id(self):
         """Test for id property"""
-<<<<<<< HEAD
         self.b1 = Base()
         self.b2 = Base()
         self.b3 = Base()
         self.b4 = Base(12)
         self.b5 = Base()
-=======
+
         self.obj1 = Base()
         self.obj2 = Base()
         self.obj3 = Base()
         self.obj4 = Base(12)
         self.obj5 = Base()
->>>>>>> 5a1295e1663ce23054fa33c1838757f73659aaed
         self.assertEqual(self.b1.id, 1)
         self.assertEqual(self.b2.id, 2)
         self.assertEqual(self.b3.id, 3)

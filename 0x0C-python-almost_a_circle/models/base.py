@@ -49,3 +49,15 @@ class Base:
             return "[]"
         else:
             return json.loads(json_string)
+        
+    @classmethod
+    def create(cls, **dictionary):
+        dummy_instance = cls(1)
+        dummy_instance.update(**dictionary)
+        return dummy_instance
+    def update(self, *args, **kwargs):
+        if args:
+            self.id = args[0] if len(args) > 0 else self.id
+        elif kwargs:
+            for key, value in kwargs.items():
+                setattr(self, key, value)

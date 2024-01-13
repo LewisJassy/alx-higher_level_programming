@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import json
+
 class Base:
     __nb_objects = 0
     def __init__(self, id = None):
@@ -8,3 +10,9 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def to_json_string(list_dictionaries):
+        if list_dictionaries == None:
+            return "[]"
+        else:
+            return json.dump(list_dictionaries, indent=2)

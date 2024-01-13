@@ -96,5 +96,5 @@ class Rectangle(Base):
             self.y = kwargs.get("y", self.y)
 
     def to_dictionary(self):
-        attrs = ["id", "size", "x", "y"]
+        attrs = ["id", "width", "height", "x", "y"]
         return {k: getattr(self, k) for k in attrs}

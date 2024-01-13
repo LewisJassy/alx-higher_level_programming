@@ -79,7 +79,7 @@ class Rectangle(Base):
         """function that returns values of rectangle in string format"""
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
     
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """Update attributes of the Rectangle instance with positional arguments."""
         if len(args) > 0:
             self.id = args[0] if len(args) > 0 else self.id
@@ -87,3 +87,10 @@ class Rectangle(Base):
             self.height = args[2] if len(args) > 2 else self.height
             self.x = args[3] if len(args) > 3 else self.x
             self.y = args[4] if len(args) > 4 else self.y
+        
+        else:
+            self.id = kwargs.get("id", self.id)
+            self.width = kwargs.get("width", self.width)
+            self.height = kwargs.get("height", self.height)
+            self.x = kwargs.get("x", self.x)
+            self.y = kwargs.get("y", self.y)

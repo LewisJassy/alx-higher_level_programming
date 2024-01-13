@@ -24,6 +24,12 @@ class Square(Rectangle):
         return f"[Square] ({self.id}) {self.x}/{self.y} - {self.size}"
     
     def update(self, *args, **kwargs):
+        """Updates the attributes of the Square instance.
+
+        Args:
+            *args: Positional arguments to update attributes in the order: id, size, x, y.
+            **kwargs: Keyword arguments to update attributes by name.
+        """
         if args:
             self.id = args[0] if len(args) > 0 else self.id
             self.size = args[1] if len(args) > 1 else self.size
@@ -34,6 +40,11 @@ class Square(Rectangle):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """Returns a dictionary representation of the Square instance.
+
+        Returns:
+            dict: A dictionary containing the square's attributes (id, x, size, y).
+        """
         return {
             "id": self.id,
             "x": self.x,

@@ -11,11 +11,10 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
     @staticmethod
-    def to_json_string(list_dictionaries):
-        if list_dictionaries == None:
+    def to_json_string(list_objs):
+        if list_objs is None or len(list_objs) == 0:
             return "[]"
-        else:
-            return json.dumps(list_dictionaries)
+        return json.dumps([obj.to_dictionary() for obj in list_objs])
         
     @staticmethod  
     def save_to_file(cls, list_objs):

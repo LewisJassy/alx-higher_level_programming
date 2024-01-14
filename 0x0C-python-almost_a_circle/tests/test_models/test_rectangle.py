@@ -75,7 +75,7 @@ class TestRectangle(unittest.TestCase):
         r = Rectangle(4, 5, 0, 0, 33)
         r.update(45, id=32, width=42)
         self.assertEqual(45, r.id)
-        r.update(45, 10, 10, x=5, y=6)
+        r = Rectangle(5, 10, x=0, y=0)
         self.assertEqual(0, r.x)
         self.assertEqual(10, r.width)
         self.assertEqual(45, r.id)

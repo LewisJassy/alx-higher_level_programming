@@ -294,11 +294,16 @@ class TestRectangle(unittest.TestCase):
                                         '"height": 4}]'))
         os.remove("Rectangle.json")
 
-    def test_save_to_file_none(self):
-        """Test that `save_to_file()` method of Rectangle instance
-        can be used to directly serialize and write to a file. Removes
-        file after test if test was able to write to disk.
-        """
+    def test_display(self):
+        expected = """
+        #########
+        #        #
+        #        #
+        #        #
+        #        #
+        #        #
+        #########
+            """
         Base._Base__nb_object = 0
         r1 = Rectangle(10, 7, 2, 8)
         r2 = Rectangle(2, 4)

@@ -106,11 +106,17 @@ class Rectangle(Base):
             >>> print(r)
             [Rectangle] (6) 0/3 - 6/4
         """
-        attrs = ["id", "width", "height", "x", "y"]
-        for attr, arg in zip(attrs, args):
-            setattr(self, attr, arg)
-        for k, v in kwargs.items():
-            setattr(self, k, v)
+        if len(args) > 0:
+            attrs = ['id', 'width', 'height', 'x', 'y']
+            for i, attr in enumerate(attrs):
+                if i < len(args):
+                    setattr(self, attr, args[i])
+                else:
+                    setattr(self, attr, kwargs.get(attr, getattr(self, attr)))
+        else:
+            for attr, value in kwargs.items():
+                if attr != 'id':
+                    setattr(self, attr, value)
     def to_dictionary(self):
         """Return dictionary representation of writable attributes."""
         return {

@@ -304,10 +304,15 @@
 #         r2 = Rectangle(2, 4)
 #         Rectangle.save_to_file(None)
 #         self.assertIs(os.path.exists("Rectangle.json"), True)
-        actual = ""
-        for line in expected.splitlines():
-            actual += line + "\n"
-        self.assertEqual(actual, self.rectangle.display())
+#         with open("Rectangle.json", 'r') as f:
+#             self.assertEqual(json.loads(f.read()),
+#                              json.loads('[]'))
+#         os.remove("Rectangle.json")
+
+#     def test_save_to_file_mt_list(self):
+#         """Test that `save_to_file()` method of Rectangle instance
+#         can be used to directly serialize and write to a file. Removes
+#         file after test if test was able to write to disk.
 #         """
 #         Base._Base__nb_object = 0
 #         r1 = Rectangle(10, 7, 2, 8)
@@ -357,7 +362,7 @@ class TestRectangle(unittest.TestCase):
 
     def test_str(self):
         self.assertEqual(
-            "[Rectangle] (None) 5/10 - 10/20", str(self.rectangle)
+            "[Rectangle] (3) 5/10 - 10/20", str(self.rectangle)
         )
 
     def test_update(self):

@@ -98,17 +98,20 @@ class Rectangle(Base):
         """Update attributes of the Rectangle instance with positional arguments."""
         attributes = ["id", "width", "height", "x", "y"]
 
-        if args:
-            for i in range(len(args)):
-                if i < len(attributes):
-                    setattr(self, attributes[i], args[i])
-
-        if kwargs:
-            for key, value in kwargs.items():
-                if key == 'id':
-                    setattr(self, key, value)
-                elif key in attributes and key != 'id':
-                    setattr(self, key, value)
+        Example:
+            >>> r = Rectangle(2, 2)
+            >>> args = [6]; kwargs = {"height": 4, "y": 3}
+            >>> r.update(*args, **kwargs)
+            >>> print(r)
+            [Rectangle] (6) 0/3 - 6/4
+        """
+        attrs = ["id", "width", "height", "x", "y"]
+        for attr, arg in zip(attrs, args):
+            setattr(self, attr, arg)
+        for k, v in kwargs.items():
+            setattr(self, k, v)
+    def to_dictionary(self):
+        """Return dictionary representation of writable attributes."""
     def to_dictionary(self):
         """Return dictionary representation of writable attributes."""
         return {

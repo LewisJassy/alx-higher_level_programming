@@ -105,11 +105,10 @@ class Rectangle(Base):
 
         if kwargs:
             for key, value in kwargs.items():
-                if key in attributes:
+                if key == 'id':
                     setattr(self, key, value)
-
-    def to_dictionary(self):
-        """Return dictionary representation of writable attributes."""
+                elif key in attributes and key != 'id':
+                    setattr(self, key, value)
         return {
             "x": self.x,
             "y": self.y,

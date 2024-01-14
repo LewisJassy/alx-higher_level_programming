@@ -103,12 +103,10 @@ class Rectangle(Base):
                 if i < len(attributes):
                     setattr(self, attributes[i], args[i])
 
-        else:
-            self.id = kwargs.get("id", self.id)
-            self.width = kwargs.get("width", self.width)
-            self.height = kwargs.get("height", self.height)
-            self.x = kwargs.get("x", self.x)
-            self.y = kwargs.get("y", self.y)
+        if kwargs:
+            for key, value in kwargs.items():
+                if key in attributes:
+                    setattr(self, key, value)
 
     def to_dictionary(self):
         """Return dictionary representation of writable attributes."""

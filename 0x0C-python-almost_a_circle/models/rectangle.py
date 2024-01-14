@@ -95,8 +95,9 @@ class Rectangle(Base):
         return f"[Rectangle] ({self.id}) {self.__x}/{self.__y} - {self.__width}/{self.__height}"
     # checks if there is positional argument, if there is no it falls back to update the attributes 
     def update(self, *args, **kwargs):
-        """Update attributes of the Rectangle instance with positional arguments."""
-        attributes = ["id", "width", "height", "x", "y"]
+        """Update Rectangle instances with *args and **kwargs.
+        Order of *args is 'id', 'size', 'x', 'y'. **kwargs can be in
+        any order.
 
         Example:
             >>> r = Rectangle(2, 2)
@@ -110,8 +111,6 @@ class Rectangle(Base):
             setattr(self, attr, arg)
         for k, v in kwargs.items():
             setattr(self, k, v)
-    def to_dictionary(self):
-        """Return dictionary representation of writable attributes."""
     def to_dictionary(self):
         """Return dictionary representation of writable attributes."""
         return {

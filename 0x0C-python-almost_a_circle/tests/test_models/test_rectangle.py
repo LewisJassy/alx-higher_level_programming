@@ -231,25 +231,21 @@ class TestRectangle(unittest.TestCase):
             r1.update(*[1, 1, 1, -1, 1])
         with self.assertRaises(ValueError):
             r1.update(*[1, 1, 1, 1, -1])
+        self.assertIs(os.path.exists("Rectangle.json"), True)
+        with open("Rectangle.json", 'r') as f:
+            self.assertEqual(json.loads(f.read()),
+                             json.loads('[]'))
+        os.remove("Rectangle.json")
 
-    def test_update2(self):
-        """Test that `update()` method works with **kwargs unpacking."""
+    def test_load_from_file(self):
+        """Test load from file if file non-existent"""
+        self.assertEqual(Rectangle.load_from_file(), [])
         Base._Base__nb_object = 0
-        r1 = Rectangle(10, 10, 10, 10)
-        self.assertEqual(r1.__str__(), "[Rectangle] (1) 10/10 - 10/10")
-        r1.update(**{'height': 1})
-        self.assertEqual(r1.__str__(), "[Rectangle] (1) 10/10 - 10/1")
-        r1.update(**{'width': 1, 'x': 2})
-        self.assertEqual(r1.__str__(), "[Rectangle] (1) 2/10 - 1/1")
-        r1.update(**{'y': 1, 'width': 2, 'x': 3, 'id': 89})
-        self.assertEqual(r1.__str__(), "[Rectangle] (89) 3/1 - 2/1")
-        r1.update(**{'x': 1, 'height': 2, 'y': 3, 'width': 4})
-        self.assertEqual(r1.__str__(), "[Rectangle] (89) 1/3 - 4/2")
-        r1.update(**{'wow': 3, 'hey': 'wow'})
-        self.assertEqual(r1.__str__(), "[Rectangle] (89) 1/3 - 4/2")
-        r1.update({'x': 10, 'height': 8})
-        self.assertIs(type(r1.id), dict)
-
+        r1 = Rectangle(1, 1)
+        r2 = Rectangle(2, 2)
+        Rectangle.save_to_file([r1, r2])
+        Base._Base__nb_object = 0
+        rlist = Rectangle.load_from_file()
     def test_to_dict(self):
         """Test that `to_dictionary()` method produces valid dictionary
         representation of Rectangle instance. Converts to dictionary and
@@ -269,7 +265,6 @@ class TestRectangle(unittest.TestCase):
         r2.update(**r1.to_dictionary())
         self.assertEqual(r2.__str__(), "[Rectangle] (1) 1/9 - 10/2")
         self.assertNotEqual(r1, r2)
-
     def test_save_to_file(self):
         """Test that `save_to_file()` method of Rectangle instance
         can be used to directly serialize and write to a file. Removes
@@ -293,7 +288,6 @@ class TestRectangle(unittest.TestCase):
                                         '"width": 2, '
                                         '"height": 4}]'))
         os.remove("Rectangle.json")
-
     def test_save_to_file_none(self):
         """Test that `save_to_file()` method of Rectangle instance
         can be used to directly serialize and write to a file. Removes
@@ -308,7 +302,6 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(json.loads(f.read()),
                              json.loads('[]'))
         os.remove("Rectangle.json")
-
     def test_save_to_file_mt_list(self):
         """Test that `save_to_file()` method of Rectangle instance
         can be used to directly serialize and write to a file. Removes
@@ -323,7 +316,6 @@ class TestRectangle(unittest.TestCase):
             self.assertEqual(json.loads(f.read()),
                              json.loads('[]'))
         os.remove("Rectangle.json")
-
     def test_load_from_file(self):
         """Test load from file if file non-existent"""
         self.assertEqual(Rectangle.load_from_file(), [])

@@ -25,7 +25,7 @@ $ sudo apt-get install python3
 ```
 
 ## :blue_book: Authors
-* **Bennett Dixon** - [@BennettDixon](https://github.com/BennettDixon)
+* **Lewis Njaci** - [@LewisJassy](https://github.com/LewisJassy)
 
 ## :mag: License
 

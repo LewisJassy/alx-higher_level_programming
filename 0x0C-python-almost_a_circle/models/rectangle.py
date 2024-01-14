@@ -109,6 +109,8 @@ class Rectangle(Base):
                     setattr(self, key, value)
                 elif key in attributes and key != 'id':
                     setattr(self, key, value)
+    def to_dictionary(self):
+        """Return dictionary representation of writable attributes."""
         return {
             "x": self.x,
             "y": self.y,

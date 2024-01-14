@@ -38,7 +38,7 @@ class TestRectangle(unittest.TestCase):
             n = Rectangle(4, 8, "hello", "world")
         with self.assertRaises(TypeError):
             n = Rectangle(4, 8, 5.12, 5.9)
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ValueError):
             n = Rectangle(10, 5, True, False)
 
     def test_input_values(self):

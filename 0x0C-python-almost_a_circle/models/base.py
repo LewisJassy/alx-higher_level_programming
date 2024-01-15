@@ -7,12 +7,14 @@ primarily rectangles and squares.
 import json
 import csv
 
+
 class Base:
     """
     Base class for geometric shapes,
     providing common functionality for ID management and persistence.
     """
     __nb_objects = 0
+
     def __init__(self, id = None):
         """
         Initializes a new Base object with an optional ID.
@@ -69,7 +71,6 @@ class Base:
             list_dictionaries = []
         return json.dumps(list_dictionaries)
     
-    
     @classmethod
     def save_to_file(cls, list_objs):
         """Class method to convert `list_objs` to json string and
@@ -86,6 +87,7 @@ class Base:
         with open("{}.json".format(cls.__name__), 'w') as jf:
             jf.write(cls.to_json_string([obj.to_dictionary() for
                                          obj in list_objs]))
+            
     @staticmethod 
     def from_json_string(json_string):
         """Deserializes a JSON string into a list of dictionaries.
@@ -111,6 +113,7 @@ class Base:
             with open("{:s}.json".format(cls.__name__), 'r') as jf:
                 list_dictionaries = cls.from_json_string(jf.read())
                 return [cls.create(**d) for d in list_dictionaries]
+            
         except FileNotFoundError:
             return []
     @classmethod

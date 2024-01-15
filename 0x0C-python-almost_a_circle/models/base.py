@@ -87,7 +87,7 @@ class Base:
         with open("{}.json".format(cls.__name__), 'w') as jf:
             jf.write(cls.to_json_string([obj.to_dictionary() for
                                          obj in list_objs]))
-   
+
     @staticmethod
     def from_json_string(json_string):
         """Deserializes a JSON string into a list of dictionaries.
@@ -98,7 +98,7 @@ class Base:
         Returns:
             list: List of deserialized dictionaries.
         """
-        if json_string == None:
+        if json_string is None:
             return "[]"
         else:
             return json.loads(json_string)

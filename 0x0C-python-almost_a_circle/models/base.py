@@ -15,7 +15,7 @@ class Base:
     """
     __nb_objects = 0
 
-    def __init__(self, id = None):
+    def __init__(self, id=None):
         """
         Initializes a new Base object with an optional ID.
 
@@ -53,7 +53,7 @@ class Base:
             dictionary = {}
         c.update(**dictionary)
         return c
-    
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """Static method to serialize list of dictionary objects into json.
@@ -70,7 +70,7 @@ class Base:
         if not list_dictionaries or len(list_dictionaries) == 0:
             list_dictionaries = []
         return json.dumps(list_dictionaries)
-    
+
     @classmethod
     def save_to_file(cls, list_objs):
         """Class method to convert `list_objs` to json string and
@@ -87,8 +87,8 @@ class Base:
         with open("{}.json".format(cls.__name__), 'w') as jf:
             jf.write(cls.to_json_string([obj.to_dictionary() for
                                          obj in list_objs]))
-            
-    @staticmethod 
+   
+    @staticmethod
     def from_json_string(json_string):
         """Deserializes a JSON string into a list of dictionaries.
 
@@ -102,7 +102,7 @@ class Base:
             return "[]"
         else:
             return json.loads(json_string)
-        
+
     @classmethod
     def load_from_file(cls):
         """Class method to load file containing json serialized objects.
@@ -113,9 +113,10 @@ class Base:
             with open("{:s}.json".format(cls.__name__), 'r') as jf:
                 list_dictionaries = cls.from_json_string(jf.read())
                 return [cls.create(**d) for d in list_dictionaries]
-            
+
         except FileNotFoundError:
             return []
+
     @classmethod
     def save_to_file_csv(cls, list_objs):
         """Class method to convert `list_objs` to csv format and save

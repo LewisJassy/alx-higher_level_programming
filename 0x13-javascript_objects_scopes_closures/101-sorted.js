@@ -1,6 +1,6 @@
 #!/usr/bin/node
 const dict = require('./101-data').dict;
-let newDict = {};
+const newDict = {};
 let k;
 for (k in dict) {
   newDict[dict[k]] = [];

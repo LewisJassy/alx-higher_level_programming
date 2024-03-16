@@ -1,28 +1,16 @@
 #!/usr/bin/python3
-import MySQLdb
-import sys
+"""Script to select all states from database `hbtn_0e_0_usa`"""
 
-mysql_user = sys.argv[1]
-mysql_password = sys.argv[2]
-database_name = sys.agrv[3]
+if __name__ == "__main__":
+    import MySQLdb
+    import sys
 
-connection = MySQLdb.connect(
-    host='localhost',
-    port=3306,
-    user=mysql_user,
-    password=mysql_password,
-    db=database_name
-)
-
-cursor = connection.cursor()
-
-query = "SELECT * FROM states ORDER BY id ASC"
-cursor.execute(query)
-
-rows = cursor.fetchall()
-
-for row in rows:
-    print(row)
-
-cursor.close()
-connection.close()
+    db = MySQLdb.connect(user=sys.argv[1],
+                         passwd=sys.argv[2],
+                         db=sys.argv[3])
+    cur = db.cursor()
+    cur.execute("SELECT * FROM states ORDER BY id ASC")
+    for row in cur.fetchall():
+        print(row)
+    cur.close()
+    db.close()

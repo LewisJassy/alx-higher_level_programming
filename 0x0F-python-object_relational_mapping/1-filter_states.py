@@ -7,9 +7,9 @@ if __name__ == "__main__":
     import MySQLdb
     import sys
 
-    db = MySQLdb.connect(user=sys.argv[1],
-                         passwd=sys.argv[2],
-                         database=sys.argv[3])
+    db = MySQLdb.connect(user=sys.argv[0],
+                         passwd=sys.argv[1],
+                         database=sys.argv[2])
     cur = db.cursor()
     cur.execute("SELECT * FROM states "
                 "WHERE name LIKE 'N%' "

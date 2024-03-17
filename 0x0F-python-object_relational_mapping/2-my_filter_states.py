@@ -1,19 +1,28 @@
 #!/usr/bin/python3
-"""Script to display all rows of states table where name matches argument"""
+"""script for use in getting all states from sql db
+"""
+import MySQLdb
+import sys
 
-if __name__ == "__main__":
-    import MySQLdb
-    import sys
 
-    db = MySQLdb.connect(user=sys.argv[1],
-                         passwd=sys.argv[2],
-                         database=sys.argv[3])
+if __name__ == '__main__':
+    args = sys.argv
+    if len(args) < 5:
+        print("Usage: {} username password db_name state_name".format(args[0]))
+        exit(1)
+    username = args[1]
+    password = args[2]
+    data = args[3]
+    state_name = args[4]
+    db = MySQLdb.connect(host='localhost', user=username,
+                         passwd=password, db=data,
+                         port=3306)
     cur = db.cursor()
-    cur.execute("SELECT * FROM states "
-                "WHERE name = '{}' "
-                "COLLATE 'latin1_general_cs' "
-                "ORDER BY id ASC".format(sys.argv[4]))
-    for row in cur.fetchall():
+    num_rows = cur.execute('''
+            SELECT * FROM states
+            WHERE states.name = '{}'
+            ORDER BY states.id
+            '''.format(state_name))
+    rows = cur.fetchall()
+    for row in rows:
         print(row)
-    cur.close()
-    db.close()

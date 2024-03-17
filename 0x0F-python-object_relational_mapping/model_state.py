@@ -1,22 +1,17 @@
 #!/usr/bin/python3
-"""Create table `states` using SQLAlchemy"""
-
-from sqlalchemy import Column
-from sqlalchemy import Integer
-from sqlalchemy import String
+"""script for using sqlalchemy to model our models using ORM
+"""
+from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
 
 class State(Base):
-    """Class representing the `states` table.
-
-    Columns:
-        id (int): /NOT NULL/AUTO_INCREMENT/PRIMARY_KEY/
-        name (string): /VARCHAR(128)/NOT NULL/
+    """state class for use with sqlalchemy
+        -> inherits from sqlalchemy declarative_base
     """
     __tablename__ = 'states'
 
-    id = Column(Integer, nullable=False, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)

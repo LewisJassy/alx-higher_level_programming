@@ -1,25 +1,17 @@
 #!/usr/bin/python3
-"""Create table `cities`"""
+"""script for using sqlalchemy to model our models using ORM
+"""
+from sqlalchemy import Column, Integer, String, ForeignKey
 
-from sqlalchemy import Column
-from sqlalchemy import Integer
-from sqlalchemy import String
-from sqlalchemy import ForeignKey
-from sqlalchemy.ext.declarative import declarative_base
-
-Base = declarative_base()
+from model_state import Base
 
 
 class City(Base):
-    """Class representing the `cities` table.
-
-    Columns:
-        id (int): /NOT NULL/AUTO_INCREMENT/PRIMARY_KEY/
-        name (str): /VARCHAR(128)/NOT NULL/
-        state_id (int): /NOT NULL/FOREIGN KEY/
+    """cities class for use with sqlalchemy
+        -> inherits from sqlalchemy declarative_base
     """
     __tablename__ = 'cities'
 
-    id = Column(Integer, nullable=False, primary_key=True, autoincrement=True)
+    id = Column(Integer, primary_key=True)
     name = Column(String(128), nullable=False)
-    state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
+    state_id = Column(Integer, ForeignKey("states.id"), nullable=False)

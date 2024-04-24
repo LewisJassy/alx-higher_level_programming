@@ -1,23 +1,43 @@
 #!/usr/bin/node
+const process = require('process');
 const request = require('request');
-request.get('http://swapi.co/api/films/' + process.argv[2], (err, resp, body) => {
-  if (err) console.log(err);
-  else if (resp.statusCode === 200) {
-    const film = JSON.parse(body);
-    const promises = [];
-    for (const ch of film.characters) {
-      promises.push(new Promise((resolve, reject) => {
-        request.get(ch, (err, resp, body) => {
-          if (err) {
-            reject(err);
-          } else if (resp.statusCode === 200) {
-            resolve(JSON.parse(body).name);
-          } else {
-            reject(Error('Unknown'));
-          }
-        });
-      }));
+const order = [];
+const responses = {};
+
+function getCharName (charUrl) {
+  let val;
+  val = request(charUrl, function (error, response, body) {
+    if (error != null) {
+      console.log(error);
+    } else {
+      const data = JSON.parse(body);
+      val = data.name;
+      responses[charUrl] = val;
     }
-    Promise.all(promises).then((names) => names.forEach((name) => console.log(name)));
-  }
-});
+  });
+}
+
+function doParse () {
+  const movie = process.argv[2];
+  const url = 'https://swapi.co/api/films/' + movie;
+
+  request(url, function (error, response, body) {
+    if (error != null) {
+      console.log(error);
+    } else {
+      const data = JSON.parse(body);
+      data.characters.forEach(function (charUrl) {
+        order.push(charUrl);
+        getCharName(charUrl);
+      });
+    }
+  });
+}
+
+doParse();
+setTimeout(function () {
+  // some stuff
+  order.forEach(function (url) {
+    console.log(responses[url]);
+  });
+}, 5000);
